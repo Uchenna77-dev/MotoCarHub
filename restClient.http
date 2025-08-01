@@ -1,0 +1,87 @@
+### Home page
+GET http://localhost:7000
+
+### Get All Cars
+GET http://localhost:7000/cars
+
+### Get Cars by ID
+GET http://localhost:7000/cars/687a40e897972378cc612c4d
+
+### Login
+GET http://localhost:7000/login
+
+### Logout
+GET http://localhost:7000/logout
+
+
+### Create Car
+POST http://localhost:7000/cars
+Content-Type: application/json
+
+{
+    "make":"Mercedes",
+    "model":"S-class",
+    "year": 2024,
+    "color":"dark-green",
+    "price":28000,
+    "engineType":"4.0L V8",
+    "countryOfManufacture":"Germany"
+}
+
+
+### Update Car
+PUT http://localhost:7000/cars/687a40e897972378cc612c51
+Content-Type: application/json
+
+{ 
+    "make": "Hyundai",
+    "model": "Acent",
+    "year": 2024,
+    "color": "Brown",
+    "price": 17000,
+    "engineType": "2.0L I4",
+    "countryOfManufacture": "South Korea"
+}
+
+### Delete Car
+DELETE http://localhost:7000/cars/
+
+
+### MotoBikes
+
+### Get All MotoBike
+GET http://localhost:7000/motoBikes
+
+### Get MotoBike by ID
+GET http://localhost:7000/motoBikes/687a40d897972378cc612c48
+
+
+### Create MotoBike
+POST http://localhost:7000/motoBikes
+Content-Type: application/json
+
+{
+    "make":"Honda",
+    "model":"CBR500R",
+    "year": 2023,
+    "engineType":"Parallel Twin",
+    "countryOfManufacture":"Japan"
+}
+
+
+### Update MotoBike
+PUT http://localhost:7000/motoBikes/687a40d897972378cc612c48
+Content-Type: application/json
+
+{ 
+
+    "make":"Honda",
+    "model":"CBR500R",
+    "year": 2025,
+    "engineType":"Twin Cam",
+    "countryOfManufacture":"Japan"
+
+}
+
+### Delete MotoBike
+DELETE http://localhost:7000/motoBikes/

@@ -1,0 +1,37 @@
+[
+  {
+    "make": "Honda",
+    "model": "CBR500R",
+    "year": 2023,
+    "engineType": "Parallel Twin",
+    "countryOfManufacture": "Japan"
+  },
+  {
+    "make": "Yamaha",
+    "model": "MT-07",
+    "year": 2022,
+    "engineType": "689cc Parallel Twin",
+    "countryOfManufacture": "Japan"
+  },
+  {
+    "make": "BMW",
+    "model": "R 1250 GS",
+    "year": 2024,
+    "engineType": "1254cc Boxer Twin",
+    "countryOfManufacture": "Germany"
+  },
+  {
+    "make": "Ducati",
+    "model": "Panigale V4",
+    "year": 2023,
+    "engineType": "1103cc V4",
+    "countryOfManufacture": "Italy"
+  },
+  {
+    "make": "Harley-Davidson",
+    "model": "Iron 883",
+    "year": 2021,
+    "engineType": "883cc V-Twin",
+    "countryOfManufacture": "USA"
+  }
+]

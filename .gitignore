@@ -1,0 +1,5 @@
+// Prevent node_modules from been commited to git
+node_modules
+
+// Enviroment Variables
+.env

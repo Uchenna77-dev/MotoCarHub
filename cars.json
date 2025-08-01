@@ -1,0 +1,47 @@
+[
+  {
+    "make": "Toyota",
+    "model": "Corolla",
+    "year": 2020,
+    "color": "Silver",
+    "price": 18000,
+    "engineType": "1.8L I4",
+    "countryOfManufacture": "Japan"
+  },
+  {
+    "make": "Honda",
+    "model": "Civic",
+    "year": 2021,
+    "color": "Black",
+    "price": 20000,
+    "engineType": "2.0L I4",
+    "countryOfManufacture": "Japan"
+  },
+  {
+    "make": "Ford",
+    "model": "Mustang",
+    "year": 2019,
+    "color": "Red",
+    "price": 26000,
+    "engineType": "5.0L V8",
+    "countryOfManufacture": "USA"
+  },
+  {
+    "make": "BMW",
+    "model": "3 Series",
+    "year": 2021,
+    "color": "Blue",
+    "price": 35000,
+    "engineType": "2.0L Turbo I4",
+    "countryOfManufacture": "Germany"
+  },
+  {
+    "make": "Hyundai",
+    "model": "Elantra",
+    "year": 2020,
+    "color": "Green",
+    "price": 17000,
+    "engineType": "2.0L I4",
+    "countryOfManufacture": "South Korea"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "City Auto Dealers",
+    "location": "Lagos, Nigeria",
+    "contact": "+234-812-345-6789",
+    "manager": "Emeka Obi",
+    "inventoryCapacity": 100
+  },
+  {
+    "name": "MotorKing Showroom",
+    "location": "Abuja, Nigeria",
+    "contact": "+234-801-234-5678",
+    "manager": "Aisha Bello",
+    "inventoryCapacity": 80
+  },
+  {
+    "name": "Swift Rides Ltd.",
+    "location": "Port Harcourt, Nigeria",
+    "contact": "+234-803-987-6543",
+    "manager": "John Okafor",
+    "inventoryCapacity": 120
+  },
+  {
+    "name": "MegaAuto Zone",
+    "location": "Kano, Nigeria",
+    "contact": "+234-705-111-2222",
+    "manager": "Fatima Musa",
+    "inventoryCapacity": 90
+  },
+  {
+    "name": "Elite Motors Hub",
+    "location": "Ibadan, Nigeria",
+    "contact": "+234-818-888-9999",
+    "manager": "Tunde Adetayo",
+    "inventoryCapacity": 75
+  }
+]

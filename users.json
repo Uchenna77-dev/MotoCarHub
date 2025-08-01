@@ -1,0 +1,37 @@
+[
+  {
+    "username": "admin01",
+    "password": "hashforadmin", 
+    "email": "admin01@example.com",
+    "role": "Admin",
+    "phone": "+234-701-234-5678"
+  },
+  {
+    "username": "dealer_james",
+    "password": "hasheddealerpass",
+    "email": "james@dealers.com",
+    "role": "Dealer",
+    "phone": "+234-802-987-6543"
+  },
+  {
+    "username": "user_kemi",
+    "password": "hasheduserpass",
+    "email": "kemi.user@example.com",
+    "role": "User",
+    "phone": "+234-703-123-4567"
+  },
+  {
+    "username": "manager_tomi",
+    "password": "managerpasshash",
+    "email": "tomi.manager@example.com",
+    "role": "Manager",
+    "phone": "+234-704-456-7890"
+  },
+  {
+    "username": "admin_test",
+    "password": "hashuserpass",
+    "email": "testadmin@example.com",
+    "role": "User",
+    "phone": "+234-705-111-2233"
+  }
+]

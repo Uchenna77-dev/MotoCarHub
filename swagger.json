@@ -1,0 +1,187 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Contact API",
+    "description": "API documentation for Vehicles routes",
+    "version": "1.0.0"
+  },
+  "host": "127.0.0.1:3000",
+  "basePath": "/",
+  "schemes": ["http","https"],
+  "paths": {
+    "/cars": {
+      "get": {
+        "description": "Get all cars",
+        "responses": {
+          "200": { "description": "OK" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "post": {
+        "description": "Add a new car",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "make": { "example": "Toyota" },
+                "model": { "example": "Corolla" },
+                "year": { "example": 2022 },
+                "engineType": { "example": "Petrol" },
+                "countryOfManufacture": { "example": "Japan" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Created" },
+          "400": { "description": "Bad Request" },
+          "412": { "description": "Precondition Failed" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/cars/{id}": {
+      "get": {
+        "description": "Get car by ID",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "put": {
+        "description": "Update car by ID",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "make": { "example": "Toyota" },
+                "model": { "example": "Corolla" },
+                "year": { "example": 2023 },
+                "engineType": { "example": "Hybrid" },
+                "countryOfManufacture": { "example": "Japan" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "412": { "description": "Precondition Failed" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "delete": {
+        "description": "Delete car by ID",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/motoBikes": {
+      "get": {
+        "description": "Get all motorbikes",
+        "responses": {
+          "200": { "description": "OK" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "post": {
+        "description": "Add a new motorbike",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "make": { "example": "Honda" },
+                "model": { "example": "CBR500R" },
+                "year": { "example": 2021 },
+                "engineType": { "example": "Petrol" },
+                "countryOfManufacture": { "example": "Japan" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Created" },
+          "400": { "description": "Bad Request" },
+          "412": { "description": "Precondition Failed" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/motoBikes/{id}": {
+      "get": {
+        "description": "Get motorbike by ID",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "put": {
+        "description": "Update motorbike by ID",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "make": { "example": "Yamaha" },
+                "model": { "example": "MT-07" },
+                "year": { "example": 2022 },
+                "engineType": { "example": "Petrol" },
+                "countryOfManufacture": { "example": "Japan" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "412": { "description": "Precondition Failed" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "delete": {
+        "description": "Delete motorbike by ID",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "type": "string" }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    }
+  }
+}
