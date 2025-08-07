@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const carsController = require('../controllers/cars');
 const validation = require('../middleware/validate');
+const { isAuthenticated } = require('../middleware/authenticator');
 //const {isAuthenticated} = require('../middleware/authenticator');
 
 
@@ -39,7 +40,7 @@ router.get('/:id', carsController.getCarById);
  */
 
 // POST - create new car
-router.post('/', validation.saveCars, carsController.createCar);
+router.post('/', isAuthenticated, validation.saveCars, carsController.createCar);
 /**
  * @swagger
  * /cars:
@@ -80,7 +81,7 @@ router.post('/', validation.saveCars, carsController.createCar);
  */
 
 // PUT - update car
-router.put('/:id', validation.saveCars, carsController.updateCar);
+router.put('/:id', isAuthenticated, validation.saveCars, carsController.updateCar);
 /**
  * @swagger
  * /cars/{id}:
@@ -121,7 +122,7 @@ router.put('/:id', validation.saveCars, carsController.updateCar);
  */
 
 // DELETE - delete car
-router.delete('/:id', carsController.deleteCar);
+router.delete('/:id', isAuthenticated, carsController.deleteCar);
 /**
  * @swagger
  * /cars/{id}:

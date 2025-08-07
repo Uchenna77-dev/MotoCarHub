@@ -5,9 +5,9 @@
     "description": "API documentation for Vehicles routes",
     "version": "1.0.0"
   },
-  "host": "motocarhub.onrender.com",
+  "host": "127.0.0.1:3000",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": ["http","https"],
   "paths": {
     "/cars": {
       "get": {
@@ -182,6 +182,186 @@
           "500": { "description": "Internal Server Error" }
         }
       }
+    },
+  "/dealerShips": {
+    "get": {
+      "description": "Get all dealerships",
+      "responses": {
+        "200": { "description": "OK" },
+        "500": { "description": "Internal Server Error" }
+      }
+    },
+    "post": {
+      "description": "Add a new dealership",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string", "example": "Auto World" },
+              "location": { "type": "string", "example": "Lagos, Nigeria" },
+              "contact": { "type": "string", "example": "+2348123456789" },
+              "manager": { "type": "string", "example": "Jane Doe" },
+              "inventoryCapacity": { "type": "integer", "example": 100 }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "201": { "description": "Created" },
+        "400": { "description": "Bad Request" },
+        "412": { "description": "Precondition Failed" },
+        "500": { "description": "Internal Server Error" }
+      }
+    }
+  },
+  "/dealerShips/{id}": {
+    "get": {
+      "description": "Get dealership by ID",
+      "parameters": [
+        { "name": "id", "in": "path", "required": true, "type": "string" }
+      ],
+      "responses": {
+        "200": { "description": "OK" },
+        "400": { "description": "Bad Request" },
+        "404": { "description": "Not Found" },
+        "500": { "description": "Internal Server Error" }
+      }
+    },
+    "put": {
+      "description": "Update dealership by ID",
+      "parameters": [
+        { "name": "id", "in": "path", "required": true, "type": "string" },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string", "example": "Auto Hub" },
+              "location": { "type": "string", "example": "Abuja, Nigeria" },
+              "contact": { "type": "string", "example": "+2348098765432" },
+              "manager": { "type": "string", "example": "John Smith" },
+              "inventoryCapacity": { "type": "integer", "example": 150 }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": { "description": "OK" },
+        "400": { "description": "Bad Request" },
+        "404": { "description": "Not Found" },
+        "412": { "description": "Precondition Failed" },
+        "500": { "description": "Internal Server Error" }
+      }
+    },
+    "delete": {
+      "description": "Delete dealership by ID",
+      "parameters": [
+        { "name": "id", "in": "path", "required": true, "type": "string" }
+      ],
+      "responses": {
+        "200": { "description": "OK" },
+        "400": { "description": "Bad Request" },
+        "404": { "description": "Not Found" },
+        "500": { "description": "Internal Server Error" }
+      }
+    }
+  },
+  "/users": {
+    "get": {
+      "description": "Get all users",
+      "responses": {
+        "200": { "description": "OK" },
+        "500": { "description": "Internal Server Error" }
+      }
+    },
+    "post": {
+      "description": "Add a new user",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "username": { "type": "string", "example": "admin123" },
+              "password": { "type": "string", "example": "securePass!" },
+              "email": { "type": "string", "example": "admin@example.com" },
+              "role": { "type": "string", "example": "Admin" },
+              "phone": { "type": "string", "example": "+2347011122233" }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "201": { "description": "Created" },
+        "400": { "description": "Bad Request" },
+        "412": { "description": "Precondition Failed" },
+        "500": { "description": "Internal Server Error" }
+      }
+    }
+  },
+  "/users/{id}": {
+    "get": {
+      "description": "Get user by ID",
+      "parameters": [
+        { "name": "id", "in": "path", "required": true, "type": "string" }
+      ],
+      "responses": {
+        "200": { "description": "OK" },
+        "400": { "description": "Bad Request" },
+        "404": { "description": "Not Found" },
+        "500": { "description": "Internal Server Error" }
+      }
+    },
+    "put": {
+      "description": "Update user by ID",
+      "parameters": [
+        { "name": "id", "in": "path", "required": true, "type": "string" },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "properties": {
+              "username": { "type": "string", "example": "newUser" },
+              "password": { "type": "string", "example": "newPass123" },
+              "email": { "type": "string", "example": "user@example.com" },
+              "role": { "type": "string", "example": "Manager" },
+              "phone": { "type": "string", "example": "+2348000000000" }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "200": { "description": "OK" },
+        "400": { "description": "Bad Request" },
+        "404": { "description": "Not Found" },
+        "412": { "description": "Precondition Failed" },
+        "500": { "description": "Internal Server Error" }
+      }
+    },
+    "delete": {
+      "description": "Delete user by ID",
+      "parameters": [
+        { "name": "id", "in": "path", "required": true, "type": "string" }
+      ],
+      "responses": {
+        "200": { "description": "OK" },
+        "400": { "description": "Bad Request" },
+        "404": { "description": "Not Found" },
+        "500": { "description": "Internal Server Error" }
+      }
     }
   }
 }
+}
+
+

@@ -1,37 +1,37 @@
 [
   {
-    "username": "admin01",
-    "password": "hashforadmin", 
-    "email": "admin01@example.com",
+    "username": "admin_uche",
+    "password": "$2b$12$mV3puck6s.UyeT7MoXv.ye5ckRQI4oT50GRH6En7eVD4sDON2koui",
+    "email": "testadmin@example.com",
     "role": "Admin",
-    "phone": "+234-701-234-5678"
+    "phone": "+234-705-111-2233"
+  },
+  {
+    "username": "manager_tomi",
+    "password": "$2b$12$kj8RQOh4bRN9Kj9I/W9xlO1c5nYlA/s8QrssoSNg4lm6zJc9ZCcBK",
+    "email": "tomi.manager@example.com",
+    "role": "Manager",
+    "phone": "+234-704-456-7890"
   },
   {
     "username": "dealer_james",
-    "password": "hasheddealerpass",
+    "password": "$2b$12$gMEBLTJDntSJHZbjI2JSMOQVo50Yv.8hfH9nX8xOzJriMue.6pIkm",
     "email": "james@dealers.com",
     "role": "Dealer",
     "phone": "+234-802-987-6543"
   },
   {
     "username": "user_kemi",
-    "password": "hasheduserpass",
+    "password": "$2b$12$12iZ3Xq0c7pRZQSQbasZeOlRV25/KNYP/gfWtbEs2/J7mW/HyRM8u",
     "email": "kemi.user@example.com",
     "role": "User",
     "phone": "+234-703-123-4567"
   },
   {
-    "username": "manager_tomi",
-    "password": "managerpasshash",
-    "email": "tomi.manager@example.com",
-    "role": "Manager",
-    "phone": "+234-704-456-7890"
-  },
-  {
-    "username": "admin_test",
-    "password": "hashuserpass",
-    "email": "testadmin@example.com",
+    "username": "user_bola",
+    "password": "$2b$12$Jfu5F9tQfTIxL/C2pJhOEuW6vNF7PM/gDZ93y6YCNhUCMcxB4EQrC",
+    "email": "bola.user@example.com",
     "role": "User",
-    "phone": "+234-705-111-2233"
+    "phone": "+234-706-888-3344"
   }
 ]

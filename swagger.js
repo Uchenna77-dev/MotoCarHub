@@ -10,6 +10,6 @@ const doc = {
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/cars.js', './routes/motoBikes.js']; // update with your actual routes path
+const endpointsFiles = ['./routes/cars.js', './routes/motoBikes.js', './routes/dealerShips.js', './routes/users.js']; // update with your actual routes path
 
 swaggerAutogen(outputFile, endpointsFiles, doc);

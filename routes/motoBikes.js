@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const motoBikesController = require('../controllers/motoBikes');
 const validation = require('../middleware/validate');
-//const {isAuthenticated} = require('../middleware/authenticator');
+const { isAuthenticated } = require('../middleware/authenticator');
 
 // GET all MotoBikes
 router.get('/', motoBikesController.getAllMotoBikes);
@@ -38,7 +38,7 @@ router.get('/:id', motoBikesController.getMotoBikeById);
  */
 
 // POST - create new MotoBike
-router.post('/', validation.saveMotoBikes, motoBikesController.createMotoBike);
+router.post('/', isAuthenticated, validation.saveMotoBikes, motoBikesController.createMotoBike);
 /**
  * @swagger
  * /motoBikes:
@@ -73,7 +73,7 @@ router.post('/', validation.saveMotoBikes, motoBikesController.createMotoBike);
  */
 
 // PUT - update motoBike
-router.put('/:id', validation.saveMotoBikes, motoBikesController.updateMotoBike);
+router.put('/:id', isAuthenticated, validation.saveMotoBikes, motoBikesController.updateMotoBike);
 /**
  * @swagger
  * /motoBikes/{id}:
@@ -110,7 +110,7 @@ router.put('/:id', validation.saveMotoBikes, motoBikesController.updateMotoBike)
  */
 
 // DELETE - delete MotoBike
-router.delete('/:id', motoBikesController.deleteMotoBike);
+router.delete('/:id', isAuthenticated, motoBikesController.deleteMotoBike);
 /**
  * @swagger
  * /motoBikes/{id}:
