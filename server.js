@@ -31,16 +31,16 @@ app
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: false,
-    //secure: process.env.NODE_ENV === 'production', // true in production
+    //secure: false,
+    secure: process.env.NODE_ENV === 'production', // true in production
     httpOnly: true,
-    sameSite: 'lax',
-    //sameSite: 'none'  // true in production
+    //sameSite: 'lax',
+    sameSite: 'none'  // true in production
   }
   }))
   
   .use(cors({
-  origin: ['http://127.0.0.1:3000', 'http://localhost:3000'],
+  origin: 'https://motocarhub.onrender.com',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
   }))
