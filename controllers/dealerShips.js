@@ -31,14 +31,14 @@ const getDealerShipById = async (req, res) => {
 };
 
 const createDealerShip = async (req, res) => {
-  const { name, location, phone, email } = req.body;
-  if (!name || !location || !phone || !email) {
+  const { name, location, contact, manager, inventoryCapacity } = req.body;
+  if (!name || !location || !contact || !manager || !inventoryCapacity) {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
   try {
     const db = getDb().db('vehicles');
-    const result = await db.collection('dealerShips').insertOne({ name, location, phone, email });
+    const result = await db.collection('dealerShips').insertOne({ name, location, contact, manager, inventoryCapacity });
     res.status(201).json({ message: 'Dealership created', id: result.insertedId });
   } catch (err) {
     res.status(500).json({ message: 'Failed to create dealerShip', error: err });
@@ -47,11 +47,11 @@ const createDealerShip = async (req, res) => {
 
 const updateDealerShip = async (req, res) => {
   const id = req.params.id;
-  const { name, location, phone, email } = req.body;
+  const { name, location, contact, manager, inventoryCapacity } = req.body;
   if (!ObjectId.isValid(id)) {
     return res.status(400).json({ message: 'Invalid dealerShip ID' });
   }
-  if (!name || !location || !phone || !email) {
+  if (!name || !location || !contact || !manager || !inventoryCapacity) {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
@@ -59,7 +59,7 @@ const updateDealerShip = async (req, res) => {
     const db = getDb().db('vehicles');
     const result = await db.collection('dealerShips').updateOne(
       { _id: new ObjectId(id) },
-      { $set: { name, location, phone, email } }
+      { $set: { name, location, contact, manager, inventoryCapacity } }
     );
 
     if (result.matchedCount === 0) {

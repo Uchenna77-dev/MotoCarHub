@@ -31,14 +31,14 @@ const getUserById = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
-  const { name, email, password } = req.body;
-  if (!name || !email || !password) {
+  const { username, password, email, role, phone } = req.body;
+  if (!username || !password || !email || !role || !phone) {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
   try {
     const db = getDb().db('vehicles');
-    const result = await db.collection('users').insertOne({ name, email, password });
+    const result = await db.collection('users').insertOne({ username, password, email, role, phone });
     res.status(201).json({ message: 'User created', id: result.insertedId });
   } catch (err) {
     res.status(500).json({ message: 'Failed to create user', error: err });
@@ -47,11 +47,11 @@ const createUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   const id = req.params.id;
-  const { name, email, password } = req.body;
+  const { username, password, email, role, phone } = req.body;
   if (!ObjectId.isValid(id)) {
     return res.status(400).json({ message: 'Invalid user ID' });
   }
-  if (!name || !email || !password) {
+  if (!username || !password || !email || !role || !phone) {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
@@ -59,7 +59,7 @@ const updateUser = async (req, res) => {
     const db = getDb().db('vehicles');
     const result = await db.collection('users').updateOne(
       { _id: new ObjectId(id) },
-      { $set: { name, email, password } }
+      { $set: {username, password, email, role, phone } }
     );
 
     if (result.matchedCount === 0) {
