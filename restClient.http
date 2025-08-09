@@ -1,21 +1,22 @@
 ### Home page
-GET http://localhost:7000
+GET http://localhost:3000
 
 ### Get All Cars
-GET http://localhost:7000/cars
+GET http://localhost:3000/cars
 
 ### Get Cars by ID
-GET http://localhost:7000/cars/687a40e897972378cc612c4d
+GET http://localhost:3000/cars/687a40e897972378cc612c4d
 
 ### Login
-GET http://localhost:7000/login
+GET http://localhost:3000/check-login
+GET http://localhost:3000/protected
 
 ### Logout
-GET http://localhost:7000/logout
+GET http://localhost:3000/logout
 
 
 ### Create Car
-POST http://localhost:7000/cars
+POST http://localhost:3000/cars
 Content-Type: application/json
 
 {
@@ -30,7 +31,7 @@ Content-Type: application/json
 
 
 ### Update Car
-PUT http://localhost:7000/cars/687a40e897972378cc612c51
+PUT http://localhost:3000/cars/687a40e897972378cc612c51
 Content-Type: application/json
 
 { 
@@ -44,20 +45,20 @@ Content-Type: application/json
 }
 
 ### Delete Car
-DELETE http://localhost:7000/cars/
+DELETE http://localhost:3000/cars/
 
 
 ### MotoBikes
 
 ### Get All MotoBike
-GET http://localhost:7000/motoBikes
+GET http://localhost:3000/motoBikes
 
 ### Get MotoBike by ID
-GET http://localhost:7000/motoBikes/687a40d897972378cc612c48
+GET http://localhost:3000/motoBikes/687a40d897972378cc612c48
 
 
 ### Create MotoBike
-POST http://localhost:7000/motoBikes
+POST http://localhost:3000/motoBikes
 Content-Type: application/json
 
 {
@@ -70,7 +71,7 @@ Content-Type: application/json
 
 
 ### Update MotoBike
-PUT http://localhost:7000/motoBikes/687a40d897972378cc612c48
+PUT http://localhost:3000/motoBikes/687a40d897972378cc612c48
 Content-Type: application/json
 
 { 
@@ -84,4 +85,88 @@ Content-Type: application/json
 }
 
 ### Delete MotoBike
-DELETE http://localhost:7000/motoBikes/
+DELETE http://localhost:3000/motoBikes/
+
+
+
+### dealerShips
+
+### Get All dealerShip
+GET http://localhost:3000/dealerShips
+
+### Get dealerShip by ID
+GET http://localhost:3000/dealerShips/688c5097b1472870c82bc019
+
+
+### Create daelerShips
+POST http://localhost:3000/dealerShips
+Content-Type: application/json
+
+{
+    "name":"MegaAuto Zone",
+    "location":"Kano, Nigeria",
+    "contact":"+234-705-111-2222",
+    "manager":"Fatima Musa",
+    "inventoryCapacity":90
+}
+
+
+### Update dealerShip
+PUT http://localhost:3000/dealerShips/688c5097b1472870c82bc019
+Content-Type: application/json
+
+{ 
+   
+"name":"MegaAuto Zone",
+"location":"Kano, Nigeria",
+"contact":"+234-705-111-2222",
+"manager":"Fatima Musa",
+"inventoryCapacity":90
+
+}
+
+### Delete dealerShip
+DELETE http://localhost:3000/dealerShips/
+
+
+
+### users
+
+### Get All users
+GET http://localhost:3000/users
+
+### Get users by ID
+GET http://localhost:3000/users/68943a77b1472870c82bc027
+
+
+### Create users
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username":"user_bola",
+    "password":"$2b$12$Jfu5F9tQfTIxL/C2pJhOEuW6vNF7PM/gDZ93y6YCNhUCMcxB4EQrC",
+    "email":"bola.user@example.com",
+    "role":"User",
+    "phone":"+234-706-888-3344"
+}
+
+
+### Update users
+PUT http://localhost:3000/users/68943a77b1472870c82bc027
+Content-Type: application/json
+
+{ 
+   
+    "username":"user_bola",
+    "password":"$2b$12$Jfu5F9tQfTIxL/C2pJhOEuW6vNF7PM/gDZ93y6YCNhUCMcxB4EQrC",
+    "email":"bola.user@example.com",
+    "role":"User",
+    "phone":"+234-706-888-3344"
+
+}
+
+### Delete users
+DELETE http://localhost:3000/users/
+
+
