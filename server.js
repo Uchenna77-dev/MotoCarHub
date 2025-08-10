@@ -13,6 +13,8 @@ const Routes = require('./routes/index');
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger.json'); 
 const session = require('express-session');
+const passport = require('passport');
+const GitHubStrategy = require('passport-github2').Strategy
 const cors = require('cors');
     
 const port = 3000
@@ -39,6 +41,10 @@ app
   }
   }))
   
+  // This is the basic express session initialization
+  .use(passport.initialize())
+  // Init passport for every route calls
+  .use(passport.session())
   .use(cors({
   origin: 'https://motocarhub.onrender.com',
   credentials: true,
@@ -64,6 +70,36 @@ app
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
+passport.use(new GitHubStrategy({
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK_URL
+  },
+  function(accessToken, refreshToken, profile, done) {
+    //User.findOrCreate({ githubId: profile.id }, function (err, user) {
+      // Quick fix: just use the GitHub profile directly
+      return done(null, profile);
+  }
+)); 
+
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+    done(null, obj);
+});
+
+app.get('/', (req, res) =>{res.send(req.session.user !==undefined ? `Logged in as ${req.session.user.displayName}` : 'Logged out')})
+
+app.get('/auth/github/callback', passport.authenticate('github', {
+  failureRedirect: '/api-docs', session: true}),
+  (req, res) =>{
+  console.log('GitHub login successful:', req.user);    
+  req.session.user = req.user;
+  res.redirect('/');   
+  })
 
 
 
