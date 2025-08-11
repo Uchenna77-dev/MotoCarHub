@@ -1,10 +1,11 @@
 // controllers/dealership.js
-const { getDb } = require('../db/connect');
+//const { getDb } = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const connect = require('../db/connect');
 
 const getAllDealerShips = async (req, res) => {
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const dealerships = await db.collection('dealerShips').find().toArray();
     res.status(200).json(dealerships);
   } catch (err) {
@@ -19,7 +20,7 @@ const getDealerShipById = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const dealerShip = await db.collection('dealerShips').findOne({ _id: new ObjectId(id) });
     if (!dealerShip) {
       return res.status(404).json({ message: 'DealerShip not found' });
@@ -37,7 +38,7 @@ const createDealerShip = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const result = await db.collection('dealerShips').insertOne({ name, location, contact, manager, inventoryCapacity });
     res.status(201).json({ message: 'Dealership created', id: result.insertedId });
   } catch (err) {
@@ -56,7 +57,7 @@ const updateDealerShip = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const result = await db.collection('dealerShips').updateOne(
       { _id: new ObjectId(id) },
       { $set: { name, location, contact, manager, inventoryCapacity } }
@@ -79,7 +80,7 @@ const deleteDealerShip = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const result = await db.collection('dealerShips').deleteOne({ _id: new ObjectId(id) });
 
     if (result.deletedCount === 0) {

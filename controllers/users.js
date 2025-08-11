@@ -1,10 +1,11 @@
 // controllers/user.js
-const { getDb } = require('../db/connect');
+//const { getDb } = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const connect = require('../db/connect');
 
 const getAllUsers = async (req, res) => {
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const users = await db.collection('users').find().toArray();
     res.status(200).json(users);
   } catch (err) {
@@ -19,7 +20,7 @@ const getUserById = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const user = await db.collection('users').findOne({ _id: new ObjectId(id) });
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
@@ -37,7 +38,7 @@ const createUser = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const result = await db.collection('users').insertOne({ username, password, email, role, phone });
     res.status(201).json({ message: 'User created', id: result.insertedId });
   } catch (err) {
@@ -56,7 +57,7 @@ const updateUser = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const result = await db.collection('users').updateOne(
       { _id: new ObjectId(id) },
       { $set: {username, password, email, role, phone } }
@@ -79,7 +80,7 @@ const deleteUser = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const result = await db.collection('users').deleteOne({ _id: new ObjectId(id) });
 
     if (result.deletedCount === 0) {

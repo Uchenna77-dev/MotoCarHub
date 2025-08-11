@@ -1,10 +1,11 @@
 // controllers/contact.js
-const { getDb } = require('../db/connect');
+//const { getDb } = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
+const connect = require('../db/connect');
 
 const getAllMotoBikes = async (req, res) => {
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const motoBikes = await db.collection('motoBikes').find().toArray();
     res.status(200).json(motoBikes);
   } catch (err) {
@@ -21,7 +22,7 @@ const getMotoBikeById = async (req, res) => {
       return res.status(400).json({ message: 'Invalid MongoDB ObjectId format' });
     }
 
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const bike = await db.collection('motoBikes').findOne({ _id: new ObjectId(bikeId) });
 
     if (!bike) {
@@ -47,7 +48,7 @@ const createMotoBike = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const result = await db.collection('motoBikes').insertOne({
       make,
       model,
@@ -77,7 +78,7 @@ const updateMotoBike = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
 
     const update = {
       make,
@@ -110,7 +111,7 @@ const deleteMotoBike = async (req, res) => {
   }
 
   try {
-    const db = getDb().db('vehicles');
+    const db = connect.getDb().db('vehicles');
     const result = await db.collection('motoBikes').deleteOne({ _id: new ObjectId(bikeId) });
 
     if (result.deletedCount === 0) {
